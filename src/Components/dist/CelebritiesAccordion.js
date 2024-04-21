@@ -56,7 +56,6 @@ var CelebritiesAccordion = function (_a) {
                     react_1["default"].createElement(material_1.Grid, { container: true, spacing: 2 },
                         react_1["default"].createElement(material_1.Grid, { item: true, xs: 12 },
                             react_1["default"].createElement(material_1.Typography, { variant: "body2", color: "text.secondary" },
-                                react_1["default"].createElement("strong", null, "Date of Birth:"),
                                 isEditingAge ? (react_1["default"].createElement(material_1.TextField, { type: "date", value: dob, onChange: function (e) { return setDob(e.target.value); }, onBlur: handleSave })) : (react_1["default"].createElement(react_1["default"].Fragment, null,
                                     "Age: ",
                                     age)),

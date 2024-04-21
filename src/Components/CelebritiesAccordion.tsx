@@ -83,7 +83,7 @@ const CelebritiesAccordion: React.FC<CelebritiesAccordionProps> = ({ celebrity, 
             <Grid container spacing={2}>
             <Grid item xs={12}>
   <Typography variant="body2" color="text.secondary">
-    <strong>Date of Birth:</strong> 
+    {/* <strong>Date of Birth:</strong>  */}
     {isEditingAge ? (
       <TextField
         type="date"
