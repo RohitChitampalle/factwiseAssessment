@@ -18,6 +18,7 @@ interface Celebrity {
 const App: React.FC = () => {
   const [celebrities, setCelebrities] = useState<Celebrity[]>(celebrityData);
   const [filteredCelebrities, setFilteredCelebrities] = useState<Celebrity[]>(celebrityData);
+  const [expandedId, setExpandedId] = useState<number | null>(null);
 
   const handleDelete = (id: number) => {
     const updatedCelebrities = celebrities.filter((celebrity) => celebrity.id !== id);
@@ -32,12 +33,22 @@ const App: React.FC = () => {
     setFilteredCelebrities(filteredList);
   };
 
+  const handleAccordionChange = (id: number | null) => {
+    setExpandedId(id);
+  };
+
   return (
     <div>
       <h1>Celebrities</h1>
       <SearchBar onSearch={handleSearch} />
       {filteredCelebrities.map((celebrity, index) => (
-        <CelebritiesAccordion key={index} celebrity={celebrity} onDelete={handleDelete} />
+        <CelebritiesAccordion
+          key={index}
+          celebrity={celebrity}
+          onDelete={handleDelete}
+          expanded={celebrity.id === expandedId}
+          onChange={() => handleAccordionChange(celebrity.id === expandedId ? null : celebrity.id)}
+        />
       ))}
     </div>
   );
